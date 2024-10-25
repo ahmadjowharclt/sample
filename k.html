@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTOUCH SYNDICATE LLP - Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Montserrat, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: white;
+        }
+        header {
+            background-color: #000000;
+            color: white;
+            padding: 0px;
+            text-align: left;
+        }
+        nav {
+            background-color: transparent;
+            padding: 10px;
+            text-align: right;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+        nav ul li {
+            position: relative;
+        }
+        nav ul li a {
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color:  #808080;
+        }
+        /* Dropdown Styles */
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.9);
+            list-style-type: none;
+            padding: 10px 0;
+            min-width: 180px;
+            top: 100%;
+            z-index: 999;
+            text-align: left;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+        }
+        nav ul li:hover ul {
+            display: block;
+        }
+        nav ul li ul li {
+            display: block;
+            margin-bottom: 5px;
+        }
+        nav ul li ul li a {
+            display: block;
+            padding: 10px 20px;
+            color: #000000;
+            text-align: left;
+            text-transform: capitalize;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 12px;
+            background-color: transparent;
+        }
+        nav ul li ul li a:hover {
+            background-color: #000000;
+            color: white;
+        }
+
+        footer {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 24px;
+        }
+        .social-icons a:hover {
+            color: #808080;
+        }
+
+        /* Styling for the video background */
+        section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        section video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        section h1 {
+            z-index: 1;
+            color: white;
+            font-size: 3rem;
+            text-align: center;
+        }
+        /* Make the image responsive */
+        section h1 img {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+        }
+
+        /* Button Styling */
+        .service-button {
+            position: absolute;
+            bottom: 150px;
+            padding: 15px 30px;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            z-index: 1;
+        }
+        .service-button:hover {
+            background-color: #808080;
+            color: white;
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Styling for the Services Section */
+        #services {
+            padding: 40px 0;
+            background-color: #ffffff;
+            text-align: center;
+            color: white;
+        }
+
+        /* Grid Layout for Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .service-item {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 15px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .service-item:hover {
+            transform: translateY(-10px);
+            background-color: #333;
+        }
+        .service-item h3 {
+            margin-bottom: 10px;
+            font-size: 1rem;
+            color: #ffffff;
+        }
+        .service-item p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: row;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+            .service-button {
+                bottom: 100px;
+                font-size: 1rem;
+            }
+            section h1 {
+                font-size: 2rem;
+            }
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            section h1 {
+                font-size: 1.5rem;
+            }
+            section h1 img {
+                max-width: 100%; /* Ensures image fits within screen width */
+            }
+            .service-button {
+                bottom: 80px;
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr; /* Shows services in one column on small screens */
+            }
+            .service-item {
+                padding: 15px;
+            }
+            .service-item h3 {
+                font-size: 1rem;
+            }
+            .service-item p {
+                font-size: 0.9rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li>
+                <a href="#">Services</a>
+                <ul>
+                    <li><a href="brandbon.html">Branding</a></li>
+                    <li><a href="amaze-holidays.html">Travel and Tourism</a></li>
+                    <li><a href="skill-trade.html">Manpower supply</a></li>
+                    <li><a href="ntouch-industrials.html">Manufacturing</a></li>
+                    <li><a href="amaze-pro.html">UAE PRO Services</a></li>
+                    <li><a href="import-export.html">Import/Export</a></li>
+                    <li><a href="castel-rock.html">Construction</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+        <img src="https://raw.githubusercontent.com/ahmadjowharclt/ntouch/main/syndicate.png" alt="syndicate Logo" style="max-width: 200px;">
+    </header>
+
+    <section>
+        <video autoplay muted loop>
+            <source src="https://raw.githubusercontent.com/ahmadjowharclt/ntouch/main/ab1%20(1).mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video> 
+        <h1><img src="https://raw.githubusercontent.com/ahmadjowharclt/ntouch/main/title.png" alt="title"></h1>
+        <a href="#services" class="service-button">Services &#8594;</a>
+    </section>
+
+    <section id="services">
+        <div class="services-grid">
+            <div class="service-item">
+                <h3>Construction</h3>
+                <p>Residential and commercial building construction, resort construction.</p>
+            </div>
+            <div class="service-item">
+                <h3>Luxury Manufacturing</h3>
+                <p>Custom luxury manufacturing services for diverse clients.</p>
+            </div>
+            <div class="service-item">
+                <h3>Franchise Consulting</h3>
+                <p>Expert advice for franchise development and management.</p>
+            </div>
+            <div class="service-item">
+                <h3>Manufacturing</h3>
+                <p>High-quality production services for various industries.</p>
+            </div>
+            <div class="service-item">
+                <h3>Business Consulting</h3>
+                <p>Strategic consulting for sustainable business growth.</p>
+            </div>
+            <div class="service-item">
+                <h3>Manpower Supply</h3>
+                <p>Provision of skilled and unskilled labor for various sectors.</p>
+            </div>
+            <div class="service-item">
+                <h3>H.R. Management</h3>
+                <p>Complete human resource solutions for companies.</p>
+            </div>
+        </div>
+    </section>
+        
+    <footer>
+        <p>&copy; 2024 Ntouch Syndicate LLP. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://facebook.com/yourprofile" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/yourprofile" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com/yourprofile" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com/yourprofile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
+</body>
+</html>
