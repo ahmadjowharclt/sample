@@ -6,25 +6,26 @@
     <title>NTOUCH SYNDICATE LLP - Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body {
+         body {
             font-family: Montserrat, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #000000;
             color: white;
         }
-        header {
+         header {
             background-color: #000000;
             color: white;
             padding: 0px;
             text-align: left;
+            position: relative;
         }
         nav {
             background-color: transparent;
             padding: 10px;
             text-align: right;
         }
-        nav ul {
+         nav ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
@@ -81,13 +82,16 @@
         }
 
         /* Hamburger Menu Styles */
-        .container {
+       .container {
             display: none; /* Hide hamburger by default */
             cursor: pointer;
+            position: absolute;
+            right: 20px; /* Position the hamburger to the right */
+            top: 10px;
         }
         .bar1, .bar2, .bar3 {
-            width: 35px;
-            height: 5px;
+            width: 30px;
+            height: 4px;
             background-color: white;
             margin: 6px 0;
             transition: 0.4s;
@@ -103,7 +107,7 @@
         }
         
         /* Mobile Navigation */
-        @media screen and (max-width: 768px) {
+         @media screen and (max-width: 768px) {
             nav ul {
                 display: none; /* Hide nav links by default on mobile */
                 flex-direction: column;
@@ -111,7 +115,7 @@
                 width: 100%;
                 position: absolute;
                 top: 60px;
-                left: 0;
+                right: 0; /* Align the dropdown to the right */
                 padding: 0;
                 text-align: left;
                 box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -125,10 +129,8 @@
             }
             .container {
                 display: block;
-                margin: 10px 20px;
             }
         }
-
     </style>
 </head>
 <body>
