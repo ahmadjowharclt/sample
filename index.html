@@ -18,6 +18,7 @@
             color: white;
             padding: 0px;
             text-align: left;
+            position: relative;
         }
         nav {
             background-color: transparent;
@@ -84,6 +85,9 @@
         .container {
             display: none; /* Hide hamburger by default */
             cursor: pointer;
+            position: absolute;
+            right: 20px; /* Position the hamburger to the right */
+            top: 10px;
         }
         .bar1, .bar2, .bar3 {
             width: 35px;
@@ -111,7 +115,7 @@
                 width: 100%;
                 position: absolute;
                 top: 60px;
-                left: 0;
+                right: 0; /* Align the dropdown to the right */
                 padding: 0;
                 text-align: left;
                 box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -121,11 +125,10 @@
                 padding: 10px;
             }
             nav ul li ul {
-                position: static; /* Adjust dropdown position on mobile */
+                position: static;
             }
             .container {
                 display: block;
-                margin: 10px 20px;
             }
         }
 
@@ -134,7 +137,7 @@
 <body>
     <header>
         <nav>
-            <!-- Hamburger menu icon -->
+            <!-- Hamburger menu icon positioned on the right -->
             <div class="container" onclick="toggleMenu(this)">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
