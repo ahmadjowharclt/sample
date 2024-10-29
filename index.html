@@ -18,103 +18,123 @@
             color: white;
             padding: 0px;
             text-align: left;
-            position: relative;
         }
         nav {
             background-color: transparent;
             padding: 10px;
             text-align: right;
         }
-
-        /* Navbar Styles */
-        #navbar {
+        nav ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: row;
         }
-
-        #navbar li {
+        nav ul li {
             display: inline-block;
             position: relative;
         }
-
-        #navbar li a {
+        nav ul li a {
             color: white;
             padding: 15px;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
         }
-
-        /* Toggle Icon Styles */
-        .container {
-            display: none;
-            cursor: pointer;
-            position: absolute;
-            right: 20px;
-            top: 10px;
+        nav ul li a:hover {
+            color: #808080;
         }
         
+        /* Dropdown Styles */
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.9);
+            list-style-type: none;
+            padding: 10px 0;
+            min-width: 180px;
+            top: 100%;
+            z-index: 999;
+            text-align: left;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+        }
+        nav ul li:hover ul {
+            display: block;
+        }
+        nav ul li ul li {
+            display: block;
+            margin-bottom: 5px;
+        }
+        nav ul li ul li a {
+            display: block;
+            padding: 10px 20px;
+            color: #000000;
+            text-align: left;
+            text-transform: capitalize;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 12px;
+            background-color: transparent;
+        }
+        nav ul li ul li a:hover {
+            background-color: #000000;
+            color: white;
+        }
+
+        /* Hamburger Menu Styles */
+        .container {
+            display: none; /* Hide hamburger by default */
+            cursor: pointer;
+        }
         .bar1, .bar2, .bar3 {
-            width: 30px; /* Adjusted width */
-            height: 4px;  /* Adjusted height */
+            width: 35px;
+            height: 5px;
             background-color: white;
             margin: 6px 0;
             transition: 0.4s;
         }
-        
         .change .bar1 {
-            transform: translate(0, 8px) rotate(-45deg);
+            transform: translate(0, 11px) rotate(-45deg);
         }
-        
         .change .bar2 {
             opacity: 0;
         }
-        
         .change .bar3 {
-            transform: translate(0, -8px) rotate(45deg);
+            transform: translate(0, -11px) rotate(45deg);
         }
-
+        
         /* Mobile Navigation */
         @media screen and (max-width: 768px) {
-            #navbar {
-                display: none;
-                position: fixed;
-                top: 0;
-                right: 0;
-                height: 100%;
-                width: 250px; /* Width of the sidebar */
-                background-color: #000000;
+            nav ul {
+                display: none; /* Hide nav links by default on mobile */
                 flex-direction: column;
-                padding-top: 60px;
-                box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
-                transition: transform 0.3s ease;
-                transform: translateX(100%); /* Start off-screen on the right */
+                background-color: #000000;
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 0;
+                text-align: left;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             }
-
-            /* Show navbar when toggled */
-            #navbar.show {
-                display: flex;
-                transform: translateX(0); /* Slide in from right */
+            nav ul li {
+                display: block;
+                padding: 10px;
             }
-
+            nav ul li ul {
+                position: static; /* Adjust dropdown position on mobile */
+            }
             .container {
                 display: block;
-            }
-
-            #navbar li {
-                padding: 10px;
-                text-align: right;
+                margin: 10px 20px;
             }
         }
+
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <!-- Toggle Icon -->
+            <!-- Hamburger menu icon -->
             <div class="container" onclick="toggleMenu(this)">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
@@ -153,7 +173,8 @@
         // Toggle navbar visibility on mobile
         function toggleMenu(x) {
             x.classList.toggle("change");
-            document.getElementById("navbar").classList.toggle("show");
+            document.getElementById("navbar").style.display =
+                document.getElementById("navbar").style.display === "flex" ? "none" : "flex";
         }
     </script>
 </body>
