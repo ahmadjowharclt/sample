@@ -20,11 +20,13 @@
             text-align: left;
             position: relative;
         }
+
         nav {
             background-color: transparent;
             padding: 10px;
             text-align: right;
         }
+
         nav ul {
             list-style-type: none;
             margin: 0;
@@ -44,6 +46,7 @@
         nav ul li a:hover {
             color: #808080;
         }
+        
         /* Dropdown Styles */
         nav ul li ul {
             display: none;
@@ -79,7 +82,8 @@
             background-color: #000000;
             color: white;
         }
-         /* Hamburger Menu Styles */
+
+        /* Hamburger Menu Styles */
         .container {
             display: none; /* Hide hamburger by default */
             cursor: pointer;
@@ -88,8 +92,8 @@
             top: 10px;
         }
         .bar1, .bar2, .bar3 {
-            width: 30px;
-            height: 4px;
+            width: 29px;
+            height: 2px;
             background-color: white;
             margin: 6px 0;
             transition: 0.4s;
@@ -103,167 +107,117 @@
         .change .bar3 {
             transform: translate(0, -11px) rotate(45deg);
         }
+        
         /* Mobile Navigation */
         @media screen and (max-width: 768px) {
             nav ul {
                 display: none; /* Hide nav links by default on mobile */
                 flex-direction: column;
                 background-color: #000000;
-                width: 100%;
+                width: 90%;
                 position: absolute;
                 top: 60px;
                 right: 0; /* Align the dropdown to the right */
                 padding: 0;
-                text-align: left;
+                texta-lign: left;
                 box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            }
-            nav ul.show {
-                display: flex; /* Show nav when toggled */
             }
             nav ul li {
                 display: block;
                 padding: 10px;
             }
             nav ul li ul {
-                position: static; /* Adjust dropdown position on mobile */
+                position: static;
             }
             .container {
                 display: block;
             }
-        /* Styling for the video background */
-        section {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
-        section video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
-        section h1 {
-            z-index: 1;
-            color: white;
-            font-size: 3rem;
-            text-align: center;
-        }
+         /* Button Styling */
+    .service-button {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%); /* Center the button horizontally */
+        bottom: 100px; /* Position the button above the footer */
+        padding: 15px 30px;
+        background-color: white;
+        color: black;
+        border: none;
+        border-radius: 25px; /* Oval shape */
+        font-size: 1.2rem;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        z-index: 1;
+        white-space: nowrap; /* Prevents wrapping */
+    }
+    .service-button:hover {
+        background-color: #808080;
+        color: white;
+    }
 
-        /* Button Styling */
+    /* Adjust button styling for mobile devices */
+    @media (max-width: 768px) {
         .service-button {
-            position: absolute;
-            bottom: 150px;
-            padding: 15px 30px;
-            background-color: white;
-            color: black;
-            border: none;
-            border-radius: 25px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            z-index: 1;
+            width: 50%; /* Make button span 50% width on mobile */
+            padding: 15px 0;
+            text-align: center;
+            left: 50%;
+            transform: translateX(-50%); /* Center horizontally on smaller screens */
+            bottom: 50px; /* Position the button closer to the bottom on mobile */
         }
-        .service-button:hover {
-            background-color: #808080;
-            color: white;
-        }
+    }
 
-        /* Smooth scroll behavior */
-        html {
-            scroll-behavior: smooth;
-        }
+    /* Smooth scroll behavior */
+    html {
+        scroll-behavior: smooth;
+    }
+
 
         /* Styling for the Services Section */
         #services {
-            padding: 40px 0;
-            background-color: #ffffff;
-            text-align: center;
-            color: white;
-        }
+        padding: 40px 0;
+        background-color: #ffffff;
+        text-align: center;
+        color: white;
+    }
 
-        /* Grid Layout for Services */
+    /* Grid Layout for Services */
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Single-column grid layout on mobile */
+    @media (max-width: 768px) {
         .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+            grid-template-columns: 1fr; /* Single column */
         }
-        .service-item {
-            background-color: #1a1a1a;
-            padding: 20px;
-            border-radius: 15px;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-        .service-item:hover {
-            transform: translateY(-10px);
-            background-color: #333;
-        }
-        .service-item h3 {
-            margin-bottom: 10px;
-            font-size: 1rem;
-            color: #ffffff;
-        }
-        .service-item p {
-            font-size: 1rem;
-            line-height: 1.5;
-        }
+    }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            nav {
-                text-align: left;
-            }
-            nav ul {
-                display: flex;
-                flex-direction: column;
-            }
-            nav ul li {
-                display: block;
-                margin-bottom: 10px;
-            }
-            .service-button {
-                bottom: 100px;
-                font-size: 1rem;
-            }
-            section h1 {
-                font-size: 2rem;
-            }
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 480px) {
-            section h1 {
-                font-size: 1.5rem;
-            }
-            .service-button {
-                bottom: 80px;
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            .service-item {
-                padding: 15px;
-            }
-            .service-item h3 {
-                font-size: 1rem;
-            }
-            .service-item p {
-                font-size: 0.9rem;
-            }
-            footer {
+    .service-item {
+        background-color: #1a1a1a;
+        padding: 20px;
+        border-radius: 15px;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    .service-item:hover {
+        transform: translateY(-10px);
+        background-color: #333;
+    }
+    .service-item h3 {
+        margin-bottom: 10px;
+        font-size: 1rem;
+        color: #ffffff;
+    }
+    .service-item p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+footer {
             background-color: #000000;
             color: white;
             text-align: center;
@@ -278,14 +232,43 @@
         .social-icons a:hover {
             color: #808080;
         }
-       
-        }
+        section v1 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    section h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+}
+
+section video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <!-- Hamburger menu icon -->
+            <!-- Hamburger menu icon positioned on the right -->
             <div class="container" onclick="toggleMenu(this)">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
@@ -310,28 +293,81 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
+        <img src="C:\Users\sanjiv\Desktop\website\sample\Syndicate.png" alt="BRANDBON Logo" style="max-width: 200px;">
     </header>
+
     <section>
+        <v1>
+    <!-- Video Background -->
         <video autoplay muted loop>
-            <source src="https://raw.githubusercontent.com/ahmadjowharclt/ntouch/main/ab1%20(1).mp4" type="video/mp4">
+             <source src="https://raw.githubusercontent.com/ahmadjowharclt/ntouch/main/ab1%20(1).mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
+        </v1>
+        
         <h1><img src="https://raw.githubusercontent.com/ahmadjowharclt/ntouch/main/title.png" alt="title" style="max-width: 450px;"></h1>
+        <!-- Oval-shaped Button -->
         <a href="#services" class="service-button">Services &#8594;</a>
     </section>
+    <!-- Services Section -->
+    <section id="services">
+        
+        <!-- 3x3 Grid of Services -->
+        <div class="services-grid">
+            <div class="service-item">
+                <h3>Construction</h3>
+                <p>Residential and commercial building construction, resort construction.</p>
+            </div>
+            <div class="service-item">
+                <h3>Branding</h3>
+                <p>Comprehensive branding solutions to enhance business visibility.</p>
+            </div>
+            <div class="service-item">
+                <h3>Travel and Tourism</h3>
+                <p>Customized travel packages and tourism services worldwide.</p>
+            </div>
+            <div class="service-item">
+                <h3>Import and Export</h3>
+                <p>Facilitation of international trade for various products.</p>
+            </div>
+            <div class="service-item">
+                <h3>Franchise Consulting</h3>
+                <p>Expert advice for franchise development and management.</p>
+            </div>
+            <div class="service-item">
+                <h3>Manufacturing</h3>
+                <p>High-quality production services for various industries.</p>
+            </div>
+            <div class="service-item">
+                <h3>Business Consulting</h3>
+                <p>Strategic consulting for sustainable business growth.</p>
+            </div>
+            <div class="service-item">
+                <h3>Manpower Supply</h3>
+                <p>Provision of skilled and unskilled labor for various sectors.</p>
+            </div>
+            <div class="service-item">
+                <h3>H.R. Management</h3>
+                <p>Complete human resource solutions for companies.</p>
+            </div>
+        </div>
+    </section>
+    
     <footer>
         <p>&copy; 2024 Ntouch Syndicate LLP. All rights reserved.</p>
         <div class="social-icons">
             <a href="https://facebook.com/yourprofile" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://x.com/ntouchsyndicate" target="_blank" aria-label="twitter" title="Twitter" class="Rv9f2H"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none"><path fill="currentColor" d="m.036 0 5.782 7.73L0 14.017h1.31l5.093-5.503 4.116 5.503h4.456L8.868 5.851 14.284 0h-1.31L8.283 5.068 4.493 0zm1.926.965H4.01l9.04 12.087h-2.047z"></path></svg></a>
+            <a href="https://twitter.com/yourprofile" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
             <a href="https://instagram.com/yourprofile" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
             <a href="https://linkedin.com/yourprofile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         </div>
     </footer>
     <script>
+        // Toggle navbar visibility on mobile
         function toggleMenu(x) {
             x.classList.toggle("change");
-            document.getElementById("navbar").classList.toggle("show");
+            document.getElementById("navbar").style.display =
+                document.getElementById("navbar").style.display === "flex" ? "none" : "flex";
         }
     </script>
 </body>
