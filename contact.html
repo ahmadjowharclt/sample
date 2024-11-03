@@ -197,12 +197,28 @@
     </div>
 
     <script>
-        // Toggle menu for mobile
-        document.getElementById("menu-toggle").addEventListener("click", function() {
-            this.classList.toggle("active");
-            const nav = document.querySelector("nav ul");
-            nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+    // Toggle menu for mobile
+    document.getElementById("menu-toggle").addEventListener("click", function() {
+        this.classList.toggle("active");
+        const nav = document.querySelector("nav ul");
+        
+        if (nav.style.display === "flex") {
+            nav.style.display = "none"; // Hide the menu
+        } else {
+            nav.style.display = "flex"; // Show the menu
+        }
+    });
+
+    // Optional: Close the menu if a menu item is clicked (for single-page view)
+    document.querySelectorAll("nav ul li a").forEach(link => {
+        link.addEventListener("click", function() {
+            if (window.innerWidth <= 768) { // Only hide on mobile
+                document.querySelector("nav ul").style.display = "none";
+                document.getElementById("menu-toggle").classList.remove("active");
+            }
         });
-    </script>
+    });
+</script>
+
 </body>
 </html>
