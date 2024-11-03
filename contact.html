@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Nouch Syndicate LLP</title>
+    <title>Contact Us - Ntouch Syndicate LLP</title> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body, html {
@@ -89,13 +89,6 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             border-radius: 15px;
         }
-        nav ul li:hover ul {
-            display: block;
-        }
-        nav ul li ul li {
-            display: block;
-            margin-bottom: 5px;
-        }
         nav ul li ul li a {
             display: block;
             padding: 10px 20px;
@@ -153,8 +146,8 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li>
-                    <a href="#">Services</a>
-                    <ul>
+                    <a href="#" class="services-toggle">Services</a>
+                    <ul class="dropdown">
                         <li><a href="brandbon.html">Branding</a></li>
                         <li><a href="amaze-holidays.html">Travel and Tourism</a></li>
                         <li><a href="skill-trade.html">Manpower supply</a></li>
@@ -171,7 +164,6 @@
     <div class="contact-container">
         <h1>Get in Touch</h1>
 
-        <!-- Contact Details -->
         <div class="contact-details">
             <p>Feel free to reach out to us via email at 
                 <a href="mailto:info@ntouchsyndicate.com" title="Send an Email">info@ntouchsyndicate.com</a>.
@@ -182,7 +174,6 @@
             <p><a href="https://www.google.com/maps/place/NTOUCH+SYNDICATE+LLP/@11.3593102,75.9616273,17z/data=!3m1!4b1!4m6!3m5!1s0x3ba643000874d7c7:0xf413ce14f171a796!8m2!3d11.359305!4d75.9642022!16s%2Fg%2F11w3m7dklz?entry=ttu&g_ep=EgoyMDI0MTAyMS4xIKXMDSoASAFQAw%3D%3D" target="_blank">Locate us</a></p>
         </div>
 
-        <!-- Social Media Links -->
         <div class="social-icons">
             <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
             <a href="https://x.com/ntouchsyndicate" target="_blank" aria-label="twitter"><i class="fab fa-twitter"></i></a>
@@ -190,7 +181,6 @@
             <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
         </div>
 
-        <!-- Footer -->
         <footer>
             <p>&copy; 2024 Ntouch Syndicate LLP. All rights reserved.</p>
         </footer>
@@ -203,22 +193,28 @@
         const nav = document.querySelector("nav ul");
         
         if (nav.style.display === "flex") {
-            nav.style.display = "none"; // Hide the menu
+            nav.style.display = "none";
         } else {
-            nav.style.display = "flex"; // Show the menu
+            nav.style.display = "flex";
         }
+    });
+
+    // Show dropdown on Services click only
+    document.querySelector(".services-toggle").addEventListener("click", function(e) {
+        e.preventDefault();
+        const dropdown = this.nextElementSibling;
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
     });
 
     // Optional: Close the menu if a menu item is clicked (for single-page view)
     document.querySelectorAll("nav ul li a").forEach(link => {
         link.addEventListener("click", function() {
-            if (window.innerWidth <= 768) { // Only hide on mobile
+            if (window.innerWidth <= 768) {
                 document.querySelector("nav ul").style.display = "none";
                 document.getElementById("menu-toggle").classList.remove("active");
             }
         });
     });
-</script>
-
+    </script>
 </body>
 </html>
